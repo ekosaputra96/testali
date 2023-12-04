@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('adminlte::page')
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+    @inertia
+@stop
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+@section('css')
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @inertiaHead
+@stop
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        <!-- Scripts -->
-        @routes
-        <script src="{{ mix('js/app.js') }}" defer></script>
-        @inertiaHead
-    </head>
-    <body class="font-sans antialiased">
-        @inertia
-
-        @env ('local')
-            <script src="http://localhost:8080/js/bundle.js"></script>
-        @endenv
-    </body>
-</html>
+@section('js')
+    <!-- Scripts -->
+    @routes
+    <script src="{{ mix('js/app.js') }}" defer></script>
+@stop
