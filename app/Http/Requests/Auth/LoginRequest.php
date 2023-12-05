@@ -53,6 +53,14 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if(!Auth::user()->is_active){
+            Auth::guard('web')->logout();
+
+            throw ValidationException::withMessages([
+                'email' =>  trans('auth.inactive'),
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 
