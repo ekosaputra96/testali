@@ -332,6 +332,7 @@ return [
         [
             'text'    => 'User Management',
             'icon'    => 'fas fa-users-cog',
+            'can'     => 'user-management', 
             'submenu' => [
                 [
                     'text' => 'Users',
